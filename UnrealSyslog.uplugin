@@ -1,24 +1,26 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "1.0",
+	"VersionName": "20200818",
 	"FriendlyName": "UnrealSyslog",
 	"Description": "Send Unreal Logs to Syslog servers",
 	"Category": "Other",
 	"CreatedBy": "Roberto De Ioris",
-	"CreatedByURL": "",
-	"DocsURL": "",
-	"MarketplaceURL": "",
-	"SupportURL": "",
-	"CanContainContent": true,
+	"CreatedByURL": "https://github.com/rdeioris",
+	"DocsURL": "https://github.com/rdeioris/UnrealSyslog-docs",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/",
+	"SupportURL": "https://github.com/rdeioris/UnrealSyslog-docs",
+	"CanContainContent": false,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
 	"Installed": false,
+	"EngineVersion": "4.25.0",
 	"Modules": [
 		{
 			"Name": "UnrealSyslog",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [ "Win64", "Mac", "Linux", "LinuxAArch64", "iOS", "Android" ]
 		}
 	]
 }
