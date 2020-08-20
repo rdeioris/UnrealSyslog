@@ -10,8 +10,8 @@
 UENUM()
 enum class ESyslogFormat: uint8
 {
-	IETF UMETA(DisplayName="IETF (RFC 5424)"),
-	BSD UMETA(DisplayName = "BSD (RFC 3164)"),
+	RFC5424 UMETA(DisplayName="IETF (RFC 5424)"),
+	RFC3164 UMETA(DisplayName = "BSD (RFC 3164)"),
 };
 
 USTRUCT()
@@ -53,7 +53,7 @@ struct FSyslogServer
 		Address = "127.0.0.1";
 		Port = 514;
 		Facility = 1;
-		Format = ESyslogFormat::IETF;
+		Format = ESyslogFormat::RFC5424;
 		bUTF8 = true;
 		bAddBOM = false;
 	}

@@ -103,7 +103,7 @@ void FSyslogOutputDevice::Serialize(const TCHAR* V, ELogVerbosity::Type Verbosit
 		TArray<uint8> Data;
 
 		FString LogHeader;
-		if (Server.Format == ESyslogFormat::IETF)
+		if (Server.Format == ESyslogFormat::RFC5424)
 		{
 			LogHeader = FString::Printf(TEXT("<%u>1 %s %s %s %u %llu - "),
 				Server.Facility * 8 + Severity,
@@ -122,7 +122,7 @@ void FSyslogOutputDevice::Serialize(const TCHAR* V, ELogVerbosity::Type Verbosit
 				Data.Add(0xBF);
 			}
 		}
-		else if (Server.Format == ESyslogFormat::BSD)
+		else if (Server.Format == ESyslogFormat::RFC3164)
 		{
 			TArray<FString> MonthsNames;
 			MonthsNames.Add("Jan");
