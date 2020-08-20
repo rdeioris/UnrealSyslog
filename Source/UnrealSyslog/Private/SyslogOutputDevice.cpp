@@ -5,6 +5,7 @@
 #include "SyslogSettings.h"
 #include "Misc/CString.h"
 #include "Interfaces/IPv4/IPv4Endpoint.h"
+#include "Misc/App.h"
 
 
 FSyslogOutputDevice::FSyslogOutputDevice()

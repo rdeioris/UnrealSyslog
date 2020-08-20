@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "IPAddress.h"
 #include "SyslogSettings.generated.h"
 
 UENUM()
