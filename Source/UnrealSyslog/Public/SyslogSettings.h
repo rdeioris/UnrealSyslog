@@ -38,6 +38,9 @@ struct FSyslogServer
 	bool bAddBOM;
 
 	UPROPERTY(EditAnywhere, Category = "Syslog")
+	bool bUTC;
+
+	UPROPERTY(EditAnywhere, Category = "Syslog")
 	FString Tag;
 
 	UPROPERTY(EditAnywhere, Category = "Syslog")
@@ -56,6 +59,7 @@ struct FSyslogServer
 		Format = ESyslogFormat::RFC5424;
 		bUTF8 = true;
 		bAddBOM = false;
+		bUTC = false;
 	}
 };
 

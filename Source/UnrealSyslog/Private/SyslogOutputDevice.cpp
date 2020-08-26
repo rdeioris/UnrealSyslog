@@ -32,15 +32,16 @@ void FSyslogOutputDevice::UpdateServerCache()
 	for (FSyslogServer& Server : Servers)
 	{
 		ISocketSubsystem* SocketSubsystem = ISocketSubsystem::Get(PLATFORM_SOCKETSUBSYSTEM);
-		Server.DestinationEndPoint = SocketSubsystem->CreateInternetAddr();
 
-		Server.DestinationEndPoint->SetPort(Server.Port);
-		bool bIsValid = false;
-		Server.DestinationEndPoint->SetIp(*Server.Address, bIsValid);
-		if (!bIsValid)
+		FAddressInfoResult AddressInfoResult = SocketSubsystem->GetAddressInfo(*Server.Address, nullptr, EAddressInfoFlags::Default, NAME_None);
+		if (AddressInfoResult.Results.Num() < 1)
 		{
 			continue;
 		}
+
+		Server.DestinationEndPoint = AddressInfoResult.Results[0].Address;
+		Server.DestinationEndPoint->SetPort(Server.Port);
+
 		ServersCache.Add(Server);
 	}
 }
@@ -79,8 +80,10 @@ void FSyslogOutputDevice::Serialize(const TCHAR* V, ELogVerbosity::Type Verbosit
 		break;
 	}
 
-	FDateTime Timestamp = FDateTime::Now();
 	uint32 Pid = FPlatformProcess::GetCurrentProcessId();
+
+	FDateTime Now = FDateTime::Now();
+	FDateTime UtcNow = FDateTime::UtcNow();
 
 	for (FSyslogServer& Server : ServersCache)
 	{
@@ -100,6 +103,7 @@ void FSyslogOutputDevice::Serialize(const TCHAR* V, ELogVerbosity::Type Verbosit
 			}
 		}
 
+		FDateTime Timestamp = Server.bUTC ? UtcNow : Now;
 		TArray<uint8> Data;
 
 		FString LogHeader;
