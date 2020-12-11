@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "20200826",
+	"VersionName": "20201011",
 	"FriendlyName": "UnrealSyslog",
 	"Description": "Send Unreal Logs to Syslog servers",
 	"Category": "Other",
@@ -14,7 +14,7 @@
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
 	"Installed": false,
-	"EngineVersion": "4.25.0",
+	"EngineVersion": "4.26.0",
 	"Modules": [
 		{
 			"Name": "UnrealSyslog",
