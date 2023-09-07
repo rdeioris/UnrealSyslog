@@ -19,7 +19,7 @@
 			"Name": "UnrealSyslog",
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
-			"WhitelistPlatforms": [ "Win64", "Mac", "Linux", "LinuxAArch64", "iOS", "Android" ]
+			"WhitelistPlatforms": [ "Win64", "Mac", "Linux", "LinuxArm64", "iOS", "Android" ]
 		}
 	]
 }
