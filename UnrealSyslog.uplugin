@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "20241113",
+	"VersionName": "20250604",
 	"FriendlyName": "UnrealSyslog",
 	"Description": "Send Unreal Logs to Syslog servers",
 	"Category": "Other",
